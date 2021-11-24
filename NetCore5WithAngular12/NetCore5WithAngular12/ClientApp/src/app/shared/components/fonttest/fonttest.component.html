@@ -24,6 +24,12 @@
 <div *ngIf="isShowable">
   some text to show or not based condition
 </div>
+<hr />
+
+<p>Below demonstrate @output keyword which is used to send data form inside to outside component</p>
+<div (click)="onClickOut()">
+  <p>some text which will trigger event on click</p>
+</div>
 
 
 

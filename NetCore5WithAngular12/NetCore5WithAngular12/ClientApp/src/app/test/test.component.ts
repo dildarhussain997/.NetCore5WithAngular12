@@ -28,4 +28,8 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  onEventHappend() {
+    console.log(" log message from outside component test component ");
+  }
 }
