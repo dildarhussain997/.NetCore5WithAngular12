@@ -1,0 +1,92 @@
+<p>course works!</p>
+
+<p>one way binding from Component to DOM</p>
+<h2> Text from page </h2>
+
+<h4>property value set at property initialization time => {{text1}}</h4>
+<hr />
+
+<h4> property value set using a function when its called => {{gettext()}}</h4>
+<hr />
+
+<h4>property value is set using a function within constructor of component => {{text3}}</h4>
+<hr />
+
+<h4>property value is set using a service function called with in constructor of component => {{text4}}</h4>
+<hr />
+
+<p>image url given to property to display image </p>
+<img src="{{imageurl}}" />
+<hr />
+
+<p>Table</p>
+<table>
+  <thead>
+    <tr>
+      <td>column</td>
+    </tr>
+  </thead>
+  <tr>
+    <!-- below line of code give error, because colspan exit in html but it does not exit in DOM and here we are binding our component in DOM -->
+    <!--<td colspan="{{colspan}}">text</td>-->
+    <!--<td [colspan]="colspan">text</td>-->
+    <!-- instead use below method  -->
+    <td [attr.colspan]="colspan">text</td>
+  </tr>
+</table>
+<hr />
+
+<p>bootstrap button with class binding</p>
+<!-- class.active can be used to active or inactive button based on some condition  -->
+<button class="btn btn-danger" [class.active]="isActive">Bootstrap Button</button>
+<hr />
+
+<p>bootstrap button with class binding</p>
+<!-- class.active can be used to active or inactive button based on some condition  -->
+<button class="btn" [class.btn-outline-danger]="isActive">Bootstrap Button</button>
+<hr />
+
+<p>button with style binding</p>
+<!-- for complete list of all style properties search on google DOM style list object properties -->
+<button [style.backgroundColor]="isActive ? 'blue' : 'black' ">Bootstrap Button</button>
+<hr />
+
+
+<p>button with event handling, click event will log message to console</p>
+<button class="btn btn-outline-primary" (click)="onClick()">Bootstrap Button</button>
+<hr />
+
+
+<p>button with event handling, event bubling happen means when button is click upper events in that three are also triggered</p>
+<div (click)="onClickDiv1()">
+  <div (click)="onClickDiv2()">
+    <button class="btn btn-outline-primary" (click)="onClick2()">Bootstrap Button</button>
+  </div>
+</div>
+<hr />
+
+<p>button with event handling, to stop event bubbling use $event.stopPropagation() method  </p>
+<div (click)="onClickDiv4()">
+  <div (click)="onClickDiv5()">
+    <button class="btn btn-outline-primary" (click)="onClick3($event)">Bootstrap Button</button>
+  </div>
+</div>
+<hr />
+
+<p>Event Filtering, function will be called when enter key is pressed and another function is called when space key is pressed, print message to console </p>
+<input class="form-text" (keyup.enter)="onEnter($event)" (keyup.space)="onSpace($event)" />
+<hr />
+
+<p>one way binding (from DOM to component) there are two ways to send data from DOM to component </p>
+<p>Method 1 using $event.target.value</p>
+<input class="form-text" (keyup.enter)="onkeyEnter($event)" />
+<p>Method 2 using template variable to send data from DOM to component</p>
+<input #testVariable class="form-text" (keyup.enter)="onkeyEnter2(testVariable.value)" />
+<hr />
+
+<p>two way bindings from DOM to component and from componenet to DOM  </p>
+<p>Method 1 update varibale value at event calling time using email = $event.target.value, Note it was working in angualr 8 but not working in angular 12</p>
+<!--<input [value]="textemail" class="form-text" (keyup.enter)="textemail = $event.target.value; onkeyEnter3()" />-->
+<p>Method 2 preferred method for two way binding, import FormsModule  from '@angular/forms' in module and use ngModel </p>
+<input [(ngModel)]="textemail2" (keyup.enter)="onkeyEnter4()" />
+<hr />

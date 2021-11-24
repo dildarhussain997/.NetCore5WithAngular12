@@ -1,0 +1,28 @@
+<p>test works!</p>
+
+<p>test 2 component is used for pipes and custom pipes</p>
+<hr />
+
+<p>pipes are used to format data on view </p>
+<hr>
+
+<p> using build in pipes  </p>
+<p>Title uppercase : {{titleMain | uppercase }}</p>
+<p>Title lowercase:  {{objcourse.title | lowercase}}</p>
+<p>Studnets: {{objcourse.students | number}}</p>
+<p>Rating number:  {{objcourse.rating | number }}</p>
+<p>Rating number with decimal limit:  {{objcourse.rating | number:'6.1-2'}}</p>
+<p>Price : {{objcourse.price | currency}}</p>
+<p>Price : {{objcourse.price | currency:'AUD':true:'2.2-2'}}</p>
+<p>date pipe: {{objcourse.date | date}}</p>
+<p>date long: {{objcourse.date | date:'long'}}</p>
+<p>date : {{objcourse.date}}</p>
+<hr>
+
+<p> using custom pipe, summary pipe which get long stirng but display only a short summary of it  </p>
+<p>Long orignal text : <br /> {{longtext}} </p>
+<br>
+<p>Long text with summary pipe : <br /> {{longtext | summary}} </p>
+<p>Long text with summary pipe with limit argument : <br /> {{longtext | summary:100}} </p>
+<hr />
+
