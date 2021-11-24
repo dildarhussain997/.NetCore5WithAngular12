@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { someobject } from '../shared/components/fonttest/fonttest.component';
 
 @Component({
   selector: 'app-test',
@@ -31,5 +32,12 @@ export class TestComponent implements OnInit {
 
   onEventHappend() {
     console.log(" log message from outside component test component ");
+  }
+  onEventHappend2(somevalue: any) {
+    console.log(" log message from outside component test component and value passed though event is ", somevalue);
+  }
+
+  onEventHappend3(someobj: someobject) {
+    console.log(" log message from outside component test component and object passed though event is ", someobj);
   }
 }

@@ -5,6 +5,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './fonttest.component.html',
   styleUrls: ['./fonttest.component.css']
 })
+
+
 export class FonttestComponent implements OnInit {
 
   @Input() isFill: boolean | undefined = false; // @input declare that when ever this component is used somewhere as directive the value for this variable can be set at that time  as we are using in testcomponent
@@ -17,12 +19,18 @@ export class FonttestComponent implements OnInit {
   // @output keyword is similar to input keyword, its used to send data form component to outside another component
   // eventemitter will raise an event 
   @Output('event-Happend') eventHappend = new EventEmitter();
+  @Output('event-Happend2') eventHappend2 = new EventEmitter();
+  @Output('event-Happend3') eventHappend3 = new EventEmitter();
+
+
+  obj: someobject = { value1: "someobject value 1", value2: "someobject value 2" };
 
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
   onClick() {
     this.isFill = !this.isFill;
@@ -32,4 +40,19 @@ export class FonttestComponent implements OnInit {
     console.log("log message from component fonttest ");
     this.eventHappend.emit();
   }
+
+  onClickOut2() {
+    console.log("log message from component fonttest ");
+    this.eventHappend2.emit(this.isFill);//passing some data thorugh event 
+  }
+
+  onClickOut3() {
+    console.log("log message from component fonttest ");
+    this.eventHappend3.emit(this.obj);//passing some data thorugh event
+  }
+}
+
+export interface someobject{
+  value1: string;
+  value2: string;
 }

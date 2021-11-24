@@ -31,4 +31,4 @@
 <!-- [isFill] property is an input varibale and can be set from outside of component when used as a directive -->
 <!-- [is-Showable] is alias name of fonttest component -->
 <!-- event-Happend is custom event just like click etc so we write it inside () -->
-<app-fonttest [isFill] ="isFill" [is-Showable]="isShowable" (event-Happend)="onEventHappend()"></app-fonttest>
+<app-fonttest [isFill] ="isFill" [is-Showable]="isShowable" (event-Happend)="onEventHappend()" (event-Happend2)="onEventHappend2($event)" (event-Happend3)="onEventHappend3($event)"></app-fonttest>
