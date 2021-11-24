@@ -8,6 +8,7 @@ import { CourseComponent } from './course/course.component';
 import { TestComponent } from './test/test.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { FonttestComponent } from './shared/components/fonttest/fonttest.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FonttestComponent } from './shared/components/fonttest/fonttest.compone
   ],
 
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,

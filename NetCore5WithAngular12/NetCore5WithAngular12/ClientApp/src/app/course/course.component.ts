@@ -19,6 +19,7 @@ export class CourseComponent implements OnInit {
   textemail: string = "dildar@domain.com";
   textemail2: string = "dildar2@domain.com";
 
+  
 
   constructor(courseService: CourseService) {
     // you can use below code to create instance of a service or you can use above dependency injection,

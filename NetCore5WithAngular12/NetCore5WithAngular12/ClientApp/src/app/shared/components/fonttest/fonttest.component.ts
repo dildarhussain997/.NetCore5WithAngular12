@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fonttest',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FonttestComponent implements OnInit {
 
+  @Input() isFill: boolean | undefined = false; // @input declare that when ever this component is used somewhere as directive the value for this variable can be set at that time  as we are using in testcomponent
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClick() {
+    this.isFill = !this.isFill;
+  }
 }

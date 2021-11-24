@@ -5,3 +5,22 @@
 <i class='fab fa-facebook'></i>
 <p>with size</p>
 <i class='fab fa-facebook fa-10x '></i>
+
+<i class="far fa-star fa-3x"></i>
+<hr>
+
+<p>clickable fill and unfill  icon </p>
+<div (click)="onClick()">
+  <div *ngIf="isFill">
+    <i class="fas fa-star fa-3x"></i>
+  </div>
+  <div *ngIf="!isFill">
+    <i class="far fa-star fa-3x"></i>
+  </div>
+</div>
+
+
+
+
+
+

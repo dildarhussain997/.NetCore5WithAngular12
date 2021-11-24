@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class TestComponent implements OnInit {
 
   titleMain: string = "Title of page ";
+  isFill: boolean | undefined = true;
+
 
   objcourse = {
     title: "Title of object",
