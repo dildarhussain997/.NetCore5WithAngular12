@@ -9,6 +9,7 @@ export class TestComponent implements OnInit {
 
   titleMain: string = "Title of page ";
   isFill: boolean | undefined = true;
+  isShowable: boolean | undefined = true;
 
 
   objcourse = {
