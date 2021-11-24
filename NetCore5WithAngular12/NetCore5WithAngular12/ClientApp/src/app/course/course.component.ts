@@ -9,7 +9,7 @@ import { CourseService } from '../services/course.service';
 export class CourseComponent implements OnInit {
 
   text1: string = "value from model"; // property value is set at initialize time 
-  text2: string; // property value is set using a function when its called 
+  text2: string="" ; // property value is set using a function when its called 
   text3: string; // property value is set using a function within constructor of component  
   text4: string; // property value is set using a service function called with in constructor of component
   imageurl: string = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"; //url of image to be shown
