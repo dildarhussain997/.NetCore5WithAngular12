@@ -1,0 +1,39 @@
+<p>bootstrap-panel works!</p>
+
+<hr>
+<p>below is a normal card exmample</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-outline-danger card-link">Card link</a>
+    <a href="#" class="btn btn-outline-info card-link">Another link</a>
+  </div>
+</div>
+<hr>
+
+<hr>
+<p>below is a dynamic card exmample which recieve data from another component using select on class name</p>
+<p>ng-content is an angular component which is use for dynamic data, we can use id, existing class name or unique class name to identify ng-content to pass data to</p>
+<p>ng-content will craete div or other html element and replace withing that element, if you dont want to create the html elmement the use ng-container to pass data instead if div or other html elements</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <ng-content select=".anyClassName"></ng-content>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <ng-content select="#anyIdName"></ng-content>
+    </h6>
+    <p class="card-text">
+      <ng-content select=".anyClassName2"></ng-content>
+    </p>
+    <a href="#" class="btn btn-outline-danger card-link">
+      <ng-content select="#anyIdName2"></ng-content>
+    </a>
+    <a href="#" class="btn btn-outline-info card-link">
+      <ng-content select="#anyIdName3"></ng-content>
+    </a>
+  </div>
+</div>
+<hr>

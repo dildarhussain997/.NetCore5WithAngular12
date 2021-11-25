@@ -9,13 +9,15 @@ import { TestComponent } from './test/test.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { FonttestComponent } from './shared/components/fonttest/fonttest.component';
 import { CommonModule } from '@angular/common';
+import { BootstrapPanelComponent } from './shared/components/bootstrap-panel/bootstrap-panel.component';
 
 @NgModule({
   declarations: [
     CourseComponent,
     TestComponent,
     SummaryPipe,
-    FonttestComponent
+    FonttestComponent,
+    BootstrapPanelComponent
   ],
 
   imports: [
