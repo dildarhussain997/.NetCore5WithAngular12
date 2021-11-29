@@ -10,6 +10,8 @@ import { SummaryPipe } from './pipes/summary.pipe';
 import { FonttestComponent } from './shared/components/fonttest/fonttest.component';
 import { CommonModule } from '@angular/common';
 import { BootstrapPanelComponent } from './shared/components/bootstrap-panel/bootstrap-panel.component';
+import { DirectivesComponent } from './shared/components/directives/directives.component';
+import { CustomInputFormatterDirective } from './shared/custom-directives/custom-input-formatter.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { BootstrapPanelComponent } from './shared/components/bootstrap-panel/boo
     TestComponent,
     SummaryPipe,
     FonttestComponent,
-    BootstrapPanelComponent
+    BootstrapPanelComponent,
+    DirectivesComponent,
+    CustomInputFormatterDirective
   ],
 
   imports: [

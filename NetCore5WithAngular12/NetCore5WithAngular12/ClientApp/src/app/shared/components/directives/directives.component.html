@@ -1,0 +1,141 @@
+<h2>directives works!</h2>
+
+<p> *ngIf can be used to hide or show and element but hidden property can also be used for that </p>
+<p> diffrence between *ngIf and hidden property is that *ngIf does not add element to the DOM while hidden property add element to DOM but its hidden from user view but still present in DOM can be seen from inspect element</p>
+<p> best practice: if elemnt is small then use hidden property as it does not takes too much resource and processing power but if element is large then use *ngIf so that elemnt is never added to DOM and save memory and processing</p>
+<p> but if an element is large and is needed again again and takes large processing time then its better to hide it with hidden property so that we dont need to get data for that element again</p>
+<hr>
+
+<h4>hidden property here</h4>
+<div hidden>
+  some div with hidden property applied
+</div>
+
+<div [hidden]="true">
+  some div with hidden property applied
+</div>
+<hr />
+
+<h4>*ngIf here </h4>
+<div *ngIf="true">
+  some text to show if *ngIf condition is  true
+</div>
+<hr />
+
+<h4>*ngIf with else </h4>
+<div *ngIf="1 > 0; else sometext">
+  this text is show if condition is true
+</div>
+<ng-template #sometext>
+  this text is shown if condition is false
+</ng-template>
+<hr />
+
+<h4>*ngIf with else proper and recommended was  </h4>
+<div *ngIf="1 > 0; then sometext1  else sometext2">
+
+</div>
+<ng-template #sometext1>
+  this text is shown if condition is true
+</ng-template>
+
+<ng-template #sometext2>
+  this text is shown if condition is false
+</ng-template>
+<hr />
+
+
+<h4>Switch case</h4>
+
+<ul class="nav nav-pills">
+  <li class=" nav-item ">
+    <a class="nav-link " [class.active]=" viewMode == 'map'" (click)="viewMode = 'map'">Map View </a>
+
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List View </a>
+  </li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">map View Content </div>
+  <div *ngSwitchCase="'list'">List View Content </div>
+  <div *ngSwitchDefault>List View Content </div>
+</div>
+
+<hr />
+
+<h4>ngFor implementation</h4>
+<h5>simple for loop</h5>
+<ul>
+  <li *ngFor="let student of students">{{student.name}}</li>
+</ul>
+
+<h5>for loop with given features</h5>
+<h6>for loop with index</h6>
+<ul>
+  <li *ngFor="let student of students; index as i">
+    index : {{i}} and name: {{student.name}}
+  </li>
+</ul>
+
+<h6>for loop with even or odd</h6>
+<ul>
+  <li *ngFor="let student of students; even as isEven">
+    Name: {{student.name}} <span *ngIf="isEven"> index is even</span>
+  </li>
+</ul>
+
+<h6>for loop with with change detection, it automatically detects changes and update the view </h6>
+<button class="btn btn-info" (click)="onAdd()"> Add Student </button>
+<ul>
+  <li *ngFor="let student of students;">
+    Name: {{student.name}}
+    <button class="btn btn-info" (click)="onRemove(student)"> Remove </button>
+  </li>
+</ul>
+
+<h6>for loop with with trackby, if you click button to load courses it will always go get data and refresh/recraete front ui element even if there is no change in data </h6>
+<p>as we click load courses course will always be intialzed (from api) and list will be relaoded which you can observe form inspect element</p>
+<p>to avaoid this we use trackby which will reload elemnt only if some data is changed in model</p>
+<button class="btn btn-info" (click)="loadCourses()"> Load Courses without trackby</button>
+<ul>
+  <li *ngFor="let course of courses;">
+    Name: {{course.name}}
+  </li>
+</ul>
+
+<br />
+
+<button class="btn btn-info" (click)="loadCourses2()"> Load Courses with trackby</button>
+<!-- here trackCourse is name of the fucntion but only the name is used not parathenses -->
+<ul>
+  <li *ngFor="let course of courses2; trackBy: trackCourse">
+    Name: {{course.name}}
+  </li>
+</ul>
+
+<hr />
+
+<h4>ngClass implementation</h4>
+<h5>ngClass is used when you want to add multiple classes to one element dynamically</h5>
+<p>an object is passed to ngClass which contain property value pairs, propety is css property and value is condition </p>
+<button [ngClass]="{'btn': true, 'btn-outline-danger': true}">Some ngClass button </button>
+<hr />
+
+<h4>ngStyle implementation</h4>
+<h5>ngStyle is used when you want to add multiple styles to one element dynamically</h5>
+<p>an object is passed to ngStyle which contain property value pairs, propety is css property and value is condition </p>
+<button [ngStyle]="{
+        'backgroundColor': true ? 'blue': 'green',
+        'color': true ? 'white': 'green'
+        }">
+  Some ngClass button
+</button>
+<hr />
+
+<h4>Custome directives which can be use to apply to any element </h4>
+<p>here we are using input formatter when user moves away from input field which will take text from input field and convert to upper case </p>
+<input type="text" appCustomInputFormatter [format]="'upperCase'"/>
+
+

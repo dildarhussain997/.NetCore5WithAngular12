@@ -34,10 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\shared\components\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="ClientApp\node_modules\bootstrap\dist\css\bootstrap-reboot.css.map" />
@@ -182,6 +178,10 @@
     <None Include="ClientApp\node_modules\bootstrap\scss\_type.scss" />
     <None Include="ClientApp\node_modules\bootstrap\scss\_utilities.scss" />
     <None Include="ClientApp\node_modules\bootstrap\scss\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\shared\custom-directives\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
