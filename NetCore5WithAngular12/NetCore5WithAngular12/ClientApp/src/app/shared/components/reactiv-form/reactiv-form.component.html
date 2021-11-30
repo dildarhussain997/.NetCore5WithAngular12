@@ -1,0 +1,166 @@
+<h1>reactiv-form works!</h1>
+
+<h4>Signup Form with required validators</h4>
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input formControlName="emailAddress" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div *ngIf="emailAddress.touched && emailAddress.invalid" class="alert alert-danger"> email address is required </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <div *ngIf="password.touched && password.invalid" class="alert alert-danger"> email address is required </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h4>Signup Form with multiple validators</h4>
+<form [formGroup]="form2">
+  <div class="form-group">
+    <label for="exampleInputEmail2">Email address</label>
+    <input formControlName="emailAddress2" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div *ngIf="emailAddress2.touched && emailAddress2.invalid" class="alert alert-danger"> email address is required </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword2">Password</label>
+    <input formControlName="password2" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+    <div *ngIf="password2.touched && password2.invalid" class="alert alert-danger">
+      <div *ngIf="password2.errors.required">password is required </div>
+      <div *ngIf="password2.errors.minlength">password must have minimum {{password2.errors.minlength.requiredLength}} alphabets </div>
+      <div *ngIf="password2.errors.maxlength">password must have minimum {{password2.errors.maxlength.requiredLength}} alphabets </div>
+    </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck2">
+    <label class="form-check-label" for="exampleCheck2">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<h4>Signup Form with custom validators</h4>
+<form [formGroup]="form3">
+  <div class="form-group">
+    <label for="exampleInputEmail3">Email address</label>
+    <input formControlName="emailAddress3" type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div *ngIf="emailAddress3.touched && emailAddress3.invalid" class="alert alert-danger">
+      <div *ngIf="emailAddress3.errors.required">email is required </div>
+      <div *ngIf="emailAddress3.errors.mustHaveAtTheRate"> must have @ </div>
+      <div *ngIf="emailAddress3.errors.mustHaveOnlyOneAtTheRate"> required @'s: {{emailAddress3.errors.detail.requireLength}} contained @'s: {{emailAddress3.errors.detail.actualLength}} </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword3">Password</label>
+    <input formControlName="password3" type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+    <div *ngIf="password3.touched && password3.invalid" class="alert alert-danger">
+      <div *ngIf="password3.errors.required">password is required </div>
+      <div *ngIf="password3.errors.canNotHaveSpace">can not have space  </div>
+    </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck3">
+    <label class="form-check-label" for="exampleCheck3">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h4>Signup Form with custom Async validators</h4>
+<form [formGroup]="form4">
+  <div class="form-group">
+    <label for="exampleInputEmail4">Email address</label>
+    <input formControlName="emailAddress4" type="email" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <small *ngIf="emailAddress4.pending">Checking for uniqueness...</small>
+    <div *ngIf="emailAddress4.touched && emailAddress4.invalid" class="alert alert-danger">
+      <div *ngIf="emailAddress4.errors.required">email is required </div>
+      <div *ngIf="emailAddress4.errors.MustBeUniqueId">email must be unique </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword4">Password</label>
+    <input formControlName="password4" type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+    <div *ngIf="password4.touched && password4.invalid" class="alert alert-danger">
+      <div *ngIf="password4.errors.required">password is required </div>
+    </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck4">
+    <label class="form-check-label" for="exampleCheck4">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h4>Signup Form with form level errors</h4>
+<div *ngIf="form5.errors" class="alert alert-danger">
+  <div *ngIf="form5.errors.loginFailed"> email or password is invalid </div>
+</div>
+<form [formGroup]="form5" (ngSubmit)="onLogin()">
+  <div class="form-group">
+    <label for="exampleInputEmail5">Email address</label>
+    <input formControlName="emailAddress5" type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword5">Password</label>
+    <input formControlName="password5" type="password" class="form-control" id="exampleInputPassword5" placeholder="Password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck5">
+    <label class="form-check-label" for="exampleCheck4">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<h4>Signup Form with nested formgoupe and formcontrol elements</h4>
+<form [formGroup]="form6">
+  <div formGroupName="account">
+    <div class="form-group">
+      <label for="exampleInputEmail6">Email address</label>
+      <input formControlName="emailAddress6" type="email" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <div *ngIf="emailAddress6.touched && emailAddress6.invalid" class="alert alert-danger">
+        <div *ngIf="emailAddress6.errors.required">email is required </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword6">Password</label>
+      <input formControlName="password6" type="password" class="form-control" id="exampleInputPassword6" placeholder="Password">
+      <div *ngIf="password6.touched && password6.invalid" class="alert alert-danger">
+        <div *ngIf="password6.errors.required">password is required </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck6">
+    <label class="form-check-label" for="exampleCheck6">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h4>Form with array of form control objects</h4>
+<form >
+  <input #topic1 (keyup.enter)="addTopic(topic1)" type="text" class="form-control"/>
+</form>
+<ul class="list-group">
+  <li *ngFor="let topic of topics.controls" class="list-group-item">
+    {{topic.value}}
+    <button class="btn btn-danger" (click)="removeTopic(topic)">Remove</button>
+  </li>
+</ul>
+<hr />
+
+<h4>diffrence between tradation form creation and using form building is being explained at code level</h4>
+<p>
+  form8 and form9 are same but one is build using traditional approach and one is build using formbuilder <br />
+  below form contains form control, form array, form group and nested form groupe <br />
+  using form builder is much cleaner approach<br />
+</p>

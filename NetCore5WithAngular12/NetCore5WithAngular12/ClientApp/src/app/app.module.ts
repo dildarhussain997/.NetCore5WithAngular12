@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseComponent } from './course/course.component';
 import { TestComponent } from './test/test.component';
 import { SummaryPipe } from './pipes/summary.pipe';
@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
 import { BootstrapPanelComponent } from './shared/components/bootstrap-panel/bootstrap-panel.component';
 import { DirectivesComponent } from './shared/components/directives/directives.component';
 import { CustomInputFormatterDirective } from './shared/custom-directives/custom-input-formatter.directive';
+import { TemplateDrivenFormComponent } from './shared/components/template-driven-form/template-driven-form.component';
+import { ReactivFormComponent } from './shared/components/reactiv-form/reactiv-form.component';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { CustomInputFormatterDirective } from './shared/custom-directives/custom
     FonttestComponent,
     BootstrapPanelComponent,
     DirectivesComponent,
-    CustomInputFormatterDirective
+    CustomInputFormatterDirective,
+    TemplateDrivenFormComponent,
+    ReactivFormComponent,
+    FormsComponent
   ],
 
   imports: [
@@ -30,6 +36,7 @@ import { CustomInputFormatterDirective } from './shared/custom-directives/custom
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
